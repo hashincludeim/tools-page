@@ -1,0 +1,13 @@
+{
+  "name": "tools-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple dark-mode page listing my web apps, with a private login for adding them.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js"
+  },
+  "engines": {
+    "node": ">=22.9"
+  }
+}
