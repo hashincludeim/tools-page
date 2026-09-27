@@ -18,7 +18,7 @@ A terminal-style page listing my web apps by category. It's a static site on Git
 2. **Token name:** `tools-page`. **Expiration:** your choice (for example 1 year).
 3. **Repository access:** *Only select repositories* → `tools-page`
 4. **Permissions** → **Repository permissions** → **Contents** → **Read and write**
-5. Click **Generate token**, copy it, and paste it on the site's `[ login ]` page.
+5. Click **Generate token**, copy it, and paste it into the **password** field on the site's `[ login ]` page.
 
 Save the token in your password manager so you can log in on your phone too. When it expires, the site sends you back to the login page. Make a new token the same way.
 

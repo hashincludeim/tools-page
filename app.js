@@ -310,22 +310,22 @@ function initLogin() {
     return;
   }
   const form = document.getElementById('login-form');
-  const input = document.getElementById('token');
+  const input = document.getElementById('password');
 
   if (new URLSearchParams(location.search).has('expired')) {
-    showStatus('your token expired or was revoked. paste a new one.', true);
+    showStatus('your password expired. log in with a new one.', true);
   }
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const token = input.value.trim();
-    if (!token) return showStatus('paste your token first.', true);
+    if (!token) return showStatus('enter your password first.', true);
 
     form.inert = true;
     showStatus('checking…');
     try {
       if (!(await tokenBelongsToOwner(token))) {
-        showStatus(`that token isn't from the ${REPO.owner} account.`, true);
+        showStatus('incorrect password.', true);
       } else if (!setToken(token)) {
         showStatus("this browser won't let the site remember you. is it in private mode?", true);
       } else {
@@ -333,7 +333,7 @@ function initLogin() {
         return;
       }
     } catch (err) {
-      showStatus(err.status === 401 ? "github didn't accept that token." : err.message, true);
+      showStatus(err.status === 401 ? 'incorrect password.' : err.message, true);
     } finally {
       form.inert = false;
     }
