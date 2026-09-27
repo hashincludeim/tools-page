@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'">
+<title>Tools</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23060907'/%3E%3Cpath d='M8 10l6 6-6 6' fill='none' stroke='%233dff8b' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 23h8' stroke='%233dff8b' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body data-page="home">
+<main class="wrap">
+  <h1 class="sr-only">Tools</h1>
+  <div class="topbar">
+    <a class="btn" id="login-link" href="login.html">login</a>
+    <button class="btn" id="logout" type="button" hidden>logout</button>
+  </div>
+
+  <section class="panel" id="add-panel" aria-labelledby="add-title" hidden>
+    <h2 class="prompt type d0" id="add-title">add link</h2>
+    <form class="tree" id="add-form" autocomplete="off" novalidate>
+      <p class="status" id="status" role="status" hidden></p>
+      <div class="field type d1">
+        <label for="category">category:</label>
+        <input id="category" list="categories" maxlength="50" placeholder="Finance">
+      </div>
+      <div class="field type d2">
+        <label for="name">name:</label>
+        <input id="name" maxlength="80" placeholder="Budget Tracker">
+      </div>
+      <div class="field type d3">
+        <label for="url">url:</label>
+        <input id="url" maxlength="2000" inputmode="url" placeholder="https://example.com">
+      </div>
+      <button class="btn btn-hi type d4" type="submit">add</button>
+    </form>
+    <datalist id="categories"></datalist>
+  </section>
+
+  <div id="links"></div>
+  <noscript><p class="empty">this page needs javascript to show the links.</p></noscript>
+  <span class="cursor" aria-hidden="true"></span>
+</main>
+</body>
+</html>
