@@ -58,4 +58,6 @@ Then open http://localhost:8000. Logging in there edits the real `links.json` on
 | `style.css` | The terminal look |
 | `links.json` | The links |
 
+When you change `app.js` or `style.css`, bump the `?v=` number where `index.html` and `login.html` load them. GitHub Pages lets browsers cache files for 10 minutes, and without a new number a browser can pair a new page with an old script.
+
 The earlier Node.js server version (password login) is in the first commit of this repo's history.
