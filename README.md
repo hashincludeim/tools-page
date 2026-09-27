@@ -2,7 +2,7 @@
 
 A terminal-style page listing my web apps by category. It's a static site on GitHub Pages: anyone can view it, and only I can add or remove links.
 
-**Live site:** https://hashincludeim.github.io/tools-page/
+**Live site:** https://hashimsalim.com (DNS at Namecheap; `CNAME` file sets the custom domain)
 
 ## How it works
 
