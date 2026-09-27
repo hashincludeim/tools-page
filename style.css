@@ -58,6 +58,18 @@ a { color: var(--hi); }
 .cat h2 { margin: 0 0 6px; font: inherit; font-weight: 700; color: var(--hi); text-transform: lowercase; overflow-wrap: anywhere; }
 .cat h2::before { content: "~/"; color: var(--dim); }
 
+/* Admin: [ ↑ ] [ ↓ ] beside each category name */
+.cat-head { display: flex; align-items: center; gap: 0.5ch; margin: 0 0 6px; }
+.cat-head h2 { margin: 0 1ch 0 0; }
+.btn-move { padding: 0 0.25ch; }
+.btn:disabled { opacity: 0.3; cursor: default; }
+.btn:disabled:hover { color: var(--dim); background: none; text-shadow: inherit; }
+@media (hover: hover) {
+  .cat .btn-move { opacity: 0; }
+  .cat:hover .btn-move, .cat .btn-move:focus-visible { opacity: 1; }
+  .cat:hover .btn-move:disabled { opacity: 0.3; }
+}
+
 /* Indented block with a dashed guide line, used for link lists and forms */
 .tree { list-style: none; margin: 0 0 0 1ch; padding: 0 0 0 2ch; border-left: 1px dashed var(--dim); }
 

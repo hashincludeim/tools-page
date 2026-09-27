@@ -164,9 +164,10 @@ function renderLinks(links, admin) {
   let n = admin ? 5 : 0; // typing order continues after the add panel's five lines
 
   root.replaceChildren(
-    ...groups.map((group) => {
-      const heading = el('h2', { className: 'type', textContent: group.name });
-      heading.style.setProperty('--n', n++);
+    ...groups.map((group, i) => {
+      const title = el('h2', { className: 'type', textContent: group.name });
+      title.style.setProperty('--n', n++);
+      const heading = admin ? el('div', { className: 'cat-head' }, [title, ...moveButtons(group, i, groups.length)]) : title;
 
       const items = group.links
         .filter((link) => safeHref(link.url))
@@ -186,6 +187,28 @@ function renderLinks(links, admin) {
   if (admin) {
     document.getElementById('categories').replaceChildren(...groups.map((g) => el('option', { value: g.name })));
   }
+}
+
+function moveButtons(group, index, count) {
+  const make = (label, offset, disabled) => {
+    const direction = offset < 0 ? 'up' : 'down';
+    const button = el('button', { type: 'button', className: 'btn btn-move', textContent: label, disabled });
+    button.setAttribute('aria-label', `Move ${group.name} ${direction}`);
+    button.addEventListener('click', () => saveChange((links) => moveCategory(links, group.name, offset), `Move category ${direction}: ${group.name}`));
+    return button;
+  };
+  return [make('↑', -1, index === 0), make('↓', 1, index === count - 1)];
+}
+
+// Categories are ordered by where their links sit in links.json, so moving one
+// regroups the list with that category swapped with its neighbour.
+function moveCategory(links, name, offset) {
+  const groups = groupByCategory(links);
+  const from = groups.findIndex((g) => g.name.toLowerCase() === name.toLowerCase());
+  const to = from + offset;
+  if (from < 0 || to < 0 || to >= groups.length) return links;
+  [groups[from], groups[to]] = [groups[to], groups[from]];
+  return groups.flatMap((g) => g.links);
 }
 
 function deleteButton(link) {
