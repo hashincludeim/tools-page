@@ -19,5 +19,12 @@
     "name": "Asteroid Watch",
     "url": "https://asteroidwatch.hashimsalim.com/",
     "createdAt": "2026-09-28T15:02:38.689Z"
+  },
+  {
+    "id": "53c241fb-526a-4266-a5ae-7a01905f4b63",
+    "category": "Finance",
+    "name": "Currency Converter",
+    "url": "https://exchange.hashimsalim.com/",
+    "createdAt": "2026-09-28T22:25:56.552Z"
   }
 ]
