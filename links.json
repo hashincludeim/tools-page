@@ -19,5 +19,12 @@
     "name": "Currency Converter",
     "url": "https://exchange.hashimsalim.com/",
     "createdAt": "2026-09-28T22:25:56.552Z"
+  },
+  {
+    "id": "9bbf82ec-acb9-41f4-9e9a-92390419002f",
+    "category": "Finance",
+    "name": "Up or Down",
+    "url": "https://upordown.hashimsalim.com/",
+    "createdAt": "2026-10-04T10:46:32.815Z"
   }
 ]
